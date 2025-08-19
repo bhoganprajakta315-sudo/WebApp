@@ -3,16 +3,18 @@ import { CommonModule } from "@angular/common";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { Routes, RouterModule } from "@angular/router";
 
-import { AboutComponent } from "./about.component";
+import { AuthComponent } from "./auth.component";
+import { LoginComponent } from "./login/login.component";
+import { NgbdAlertBasicComponent } from "../component/alert/alert.component";
 
 const routes: Routes = [
   {
     path: "",
     data: {
-      title: "About",
-      urls: [{ title: "About", url: "/about" }, { title: "About" }],
+      title: "login",
+      urls: [{ title: "Login", url: "/login" }, { title: "Login" }],
     },
-    component: AboutComponent,
+    component: LoginComponent,
   },
 ];
 
@@ -24,6 +26,9 @@ const routes: Routes = [
     RouterModule.forChild(routes),
   ],
   declarations: [
+    LoginComponent,
+    AuthComponent,
+    
   ],
 })
-export class AboutModule {}
+export class AuthModule {}

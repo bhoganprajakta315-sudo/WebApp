@@ -1,8 +1,8 @@
 import { Component, } from '@angular/core';
 @Component({
-  templateUrl: './about.component.html'
+  templateUrl: './admin.component.html'
 })
-export class AboutComponent {
+export class AdminComponent {
   constructor() {
   }
 

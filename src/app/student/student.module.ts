@@ -3,16 +3,16 @@ import { CommonModule } from "@angular/common";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { Routes, RouterModule } from "@angular/router";
 
-import { AboutComponent } from "./about.component";
+import { StudentComponent } from "./student.component";
 
 const routes: Routes = [
   {
     path: "",
     data: {
-      title: "About",
-      urls: [{ title: "About", url: "/about" }, { title: "About" }],
+      title: "Student",
+      urls: [{ title: "Student", url: "/student" }, { title: "Student" }],
     },
-    component: AboutComponent,
+    component: StudentComponent,
   },
 ];
 
@@ -26,4 +26,4 @@ const routes: Routes = [
   declarations: [
   ],
 })
-export class AboutModule {}
+export class StudentModule {}
