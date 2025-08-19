@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="form-box">
+    <h2 *ngIf="isLoginMode">Login</h2>
+    <h2 *ngIf="!isLoginMode">Sign Up</h2>
+
+    <!-- LOGIN FORM -->
+    <form *ngIf="isLoginMode" (ngSubmit)="login()">
+      <label for="username">Username</label>
+      <input type="text" id="username" [(ngModel)]="loginData.username" name="username" required>
+
+      <label for="password">Password</label>
+      <input type="password" id="password" [(ngModel)]="loginData.password" name="password" required>
+
+      <button type="submit">Login</button>
+      <p>Don't have an account? <a href="#" (click)="isLoginMode=false">Sign Up</a></p>
+    </form>
+    <!-- SIGNUP FORM -->
+    <form *ngIf="!isLoginMode" (ngSubmit)="signup()">
+      <label for="username">Username</label>
+      <input type="text" id="username" [(ngModel)]="signupData.username" name="username" required>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" [(ngModel)]="signupData.email" name="email" required>
+
+      <label for="password">Password</label>
+      <input type="password" id="password" [(ngModel)]="signupData.password" name="password" required>
+
+      <button type="submit">Sign Up</button>
+      <p>Already have an account? <a href="#" (click)="isLoginMode=true">Login</a></p>
+    </form>
+  </div>
+</div>
+

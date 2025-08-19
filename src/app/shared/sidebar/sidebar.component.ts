@@ -33,6 +33,7 @@ export class SidebarComponent implements OnInit {
 
   // End open close
   ngOnInit() {
-    this.sidebarnavItems = ROUTES.filter(sidebarnavItem => sidebarnavItem);
+    this.sidebarnavItems = ROUTES.filter(sidebarnavItem => sidebarnavItem.roles.includes('admin1')); // Filter items based on roles
+    //this.sidebarnavItems = ROUTES.filter(sidebarnavItem => sidebarnavItem);
   }
 }
