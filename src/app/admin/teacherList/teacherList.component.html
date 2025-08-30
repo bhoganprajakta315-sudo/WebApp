@@ -1,0 +1,86 @@
+<div class="card">
+  <!-- Header: Teacher List and Add Button -->
+  <div class="card-body d-flex justify-content-between align-items-center">
+    <div>
+      <h4 class="card-title mb-0">Teacher List</h4>
+      <h5 class="card-subtitle text-muted">All registered teachers</h5>
+    </div>
+    <button class="btn btn-primary" (click)="openModal()">Add Teacher</button>
+  </div>
+
+  <!-- Teacher Table -->
+  <div class="table-responsive mt-3">
+    <table class="table align-middle text-nowrap">
+      <thead>
+        <tr>
+          <th class="text-dark font-medium fs-4">Teacher Name</th>
+          <th class="text-dark font-medium fs-4">Class</th>
+          <th class="text-dark font-medium fs-4">Subject</th>
+          <th class="text-dark font-medium fs-4">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let ts of topSelling; let i = index">
+          <td>
+            <div class="d-flex align-items-center">
+              <img [src]="ts.image" alt="user" width="45" class="rounded-circle">
+              <div class="ms-3">
+                <h5 class="mb-0 font-medium">{{ ts.uname }}</h5>
+                <span class="text-muted">{{ ts.gmail }}</span>
+              </div>
+            </div>
+          </td>
+          <td class="fs-4">{{ ts.tclass }}</td>
+          <td class="fs-4">{{ ts.subject }}</td>
+          <td>
+            <button class="btn btn-sm btn-warning me-2" (click)="editTeacher(i)">Edit</button>
+            <button class="btn btn-sm btn-danger" (click)="deleteTeacher(i)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal" tabindex="-1" [ngClass]="{'show d-block': showModal}" style="background: rgba(0,0,0,0.5);">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">{{ editIndex !== null ? 'Edit Teacher' : 'Add Teacher' }}</h5>
+        <button type="button" class="btn-close" (click)="closeModal()"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="teacherForm" (ngSubmit)="saveTeacher()">
+          <div class="mb-2">
+            <label class="form-label">Teacher Name</label>
+            <input type="text" class="form-control" formControlName="uname" placeholder="Enter name">
+          </div>
+          <div class="mb-2">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-control" formControlName="gmail" placeholder="Enter email">
+          </div>
+          <div class="mb-2">
+            <label class="form-label">Class</label>
+            <input type="text" class="form-control" formControlName="tclass" placeholder="Enter class">
+          </div>
+          <div class="mb-2">
+            <label class="form-label">Subject</label>
+            <input type="text" class="form-control" formControlName="subject" placeholder="Enter subject">
+          </div>
+          <div class="mb-2">
+            <label class="form-label">Gender</label>
+            <select class="form-select" formControlName="gender">
+              <option value="">Select Gender</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-success mt-2 w-100">
+            {{ editIndex !== null ? 'Update Teacher' : 'Add Teacher' }}
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

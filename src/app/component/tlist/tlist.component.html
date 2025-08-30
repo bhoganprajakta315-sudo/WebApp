@@ -1,0 +1,43 @@
+<div class="card">
+  <div class="card-body d-flex justify-content-between align-items-center">
+    <!-- Left side: Button -->
+    <button class="btn btn-primary" (click)="addTeacher()">
+      + Add Teacher
+    </button>
+
+    <!-- Right side: Title -->
+    <div>
+      <h4 class="card-title mb-0">Teacher List</h4>
+      <h6 class="card-subtitle text-muted">All registered teachers</h6>
+    </div>
+  </div>
+
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table align-middle text-nowrap">
+        <thead>
+          <tr>
+            <th class="text-dark font-medium fs-4">Teacher Name</th>
+            <th class="text-dark font-medium fs-4">Class</th>
+            <th class="text-dark font-medium fs-4">Subject</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let ts of topSelling">
+            <td>
+              <div class="d-flex align-items-center">
+                <img [src]="ts.image" alt="user" width="45" class="rounded-circle">
+                <div class="ms-3">
+                  <h5 class="mb-0 font-medium">{{ ts.uname }}</h5>
+                  <span class="text-muted">{{ ts.gmail }}</span>
+                </div>
+              </div>
+            </td>
+            <td class="fs-4">{{ ts.tclass }}</td>
+            <td class="fs-4">{{ ts.subject }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

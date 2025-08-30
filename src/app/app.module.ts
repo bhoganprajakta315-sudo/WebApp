@@ -7,7 +7,7 @@ import {
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, provideRouter } from '@angular/router';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -20,6 +20,8 @@ import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { Approutes } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SpinnerComponent } from './shared/spinner.component';
+import { UserInfoComponent } from './user_profile/user_profile.component';
+
 
 @NgModule({
   declarations: [
@@ -38,12 +40,14 @@ import { SpinnerComponent } from './shared/spinner.component';
     FullComponent,
     NavigationComponent,
     SidebarComponent,
+    UserInfoComponent
   ],
   providers: [
     {
       provide: LocationStrategy,
       useClass: PathLocationStrategy
     },
+    
   ],
   bootstrap: [AppComponent]
 })

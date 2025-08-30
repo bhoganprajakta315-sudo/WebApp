@@ -18,8 +18,8 @@ export const TopSelling: Product[] = [
 
     {
         image: 'assets/images/users/user1.jpg',
-        uname: 'Hanna Gover',
-        gmail: 'hgover@gmail.com',
+        uname: 'Mahesh Bhandigre',
+        gmail: 'mahesh@gmail.com',
         productName: 'Flexy React',
         status: 'danger',
         weeks: 35,
@@ -27,8 +27,8 @@ export const TopSelling: Product[] = [
     },
     {
         image: 'assets/images/users/user2.jpg',
-        uname: 'Hanna Gover',
-        gmail: 'hgover@gmail.com',
+        uname: 'V Redekar',
+        gmail: 'redekar@gmail.com',
         productName: 'Landing pro React',
         status: 'info',
         weeks: 35,

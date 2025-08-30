@@ -1,0 +1,27 @@
+<div class="container mt-4">
+  <h2>{{ user.role }} Profile</h2>
+
+  <div class="card p-3 shadow rounded">
+    <p><strong>Name:</strong> {{ user.name }}</p>
+    <p><strong>Email:</strong> {{ user.email }}</p>
+    <p><strong>Role:</strong> {{ user.role }}</p>
+    <p><strong>Department:</strong> {{ user.department }}</p>
+
+  
+    <ng-container *ngIf="user.role === 'Admin'">
+      <p><strong>Contact:</strong> {{ user.contact }}</p>
+      <p><strong>Permissions:</strong> {{ user.permissions }}</p>
+    </ng-container>
+
+  
+    <ng-container *ngIf="user.role === 'Student'">
+      <p><strong>PRNNo:</strong> {{ user.prn }}</p>
+      <p><strong>Subject:</strong> {{ user.subject }}</p>
+    </ng-container>
+
+    <ng-container *ngIf="user.role === 'Teacher'">
+      <p><strong>Subject:</strong> {{ user.subject }}</p>
+      <p><strong>Experience:</strong> {{ user.experience }} 4years</p>
+    </ng-container>
+  </div>
+</div>

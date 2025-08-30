@@ -1,0 +1,30 @@
+.container {
+  max-width: 650px;
+  margin: auto;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #1a237e;
+  font-weight: 600;
+}
+
+.card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card p {
+  font-size: 15px;
+  margin: 8px 0;
+  color: #2c3e50;
+}
+
+.card p strong {
+  color: #0d47a1;
+  font-weight: 600;
+}

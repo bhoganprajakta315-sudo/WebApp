@@ -1,0 +1,76 @@
+<div class="card">
+  <div class="card-body d-flex justify-content-between align-items-center">
+    <div>
+      <h4 class="card-title mb-0">Student List</h4>
+      <h5 class="card-subtitle text-muted">All registered students</h5>
+    </div>
+    <button class="btn btn-primary" (click)="openModal()">Add Student</button>
+  </div>
+
+  <div class="table-responsive mt-3">
+    <table class="table align-middle text-nowrap">
+      <thead>
+        <tr>
+          <th class="text-dark font-medium fs-4">PRN</th>
+          <th class="text-dark font-medium fs-4">Name</th>
+          <th class="text-dark font-medium fs-4">Class</th>
+          <th class="text-dark font-medium fs-4">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let st of students; let i = index">
+          <td class="fs-4">{{ st.prn }}</td>
+          <td class="fs-4">{{ st.name }}</td>
+          <td class="fs-4">{{ st.sclass }}</td>
+          <td>
+            <button class="btn btn-sm btn-warning me-2" (click)="editStudent(i)">Edit</button>
+            <button class="btn btn-sm btn-danger" (click)="deleteStudent(i)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal" tabindex="-1" [ngClass]="{'show d-block': showModal}" style="background: rgba(0,0,0,0.5);">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">{{ editIndex !== null ? 'Edit Student' : 'Add Student' }}</h5>
+        <button type="button" class="btn-close" (click)="closeModal()"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="studentForm" (ngSubmit)="saveStudent()">
+          <div class="mb-2">
+            <label class="form-label">PRN</label>
+            <input type="text" class="form-control" formControlName="prn" placeholder="Enter PRN">
+            <div *ngIf="studentForm.controls['prn'].invalid && studentForm.controls['prn'].touched" class="text-danger">
+              PRN is required.
+            </div>
+          </div>
+
+          <div class="mb-2">
+            <label class="form-label">Full Name</label>
+            <input type="text" class="form-control" formControlName="name" placeholder="Enter Full Name">
+            <div *ngIf="studentForm.controls['name'].invalid && studentForm.controls['name'].touched" class="text-danger">
+              Full name is required (first and last name at least).
+            </div>
+          </div>
+
+          <div class="mb-2">
+            <label class="form-label">Class</label>
+            <input type="text" class="form-control" formControlName="sclass" placeholder="Enter Class">
+            <div *ngIf="studentForm.controls['sclass'].invalid && studentForm.controls['sclass'].touched" class="text-danger">
+              Class is required.
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-success mt-2 w-100">
+            {{ editIndex !== null ? 'Update Student' : 'Add Student' }}
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

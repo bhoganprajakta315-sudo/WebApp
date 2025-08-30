@@ -4,7 +4,9 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { Routes, RouterModule } from "@angular/router";
 
 import { AdminComponent } from "./admin.component";
-import { TeacherListComponent } from "./teacher/teacherList.component";
+import { TeacherListComponent } from "./teacherList/teacherList.component";
+import { StudentListComponent } from "./studentList/studentList.component";
+
 
 const routes: Routes = [
   {
@@ -18,11 +20,19 @@ const routes: Routes = [
   {
     path: "teacherList",
     data: {
-      title: "teacherList",
+      title: "TeacherList",
       urls: [{ title: "TeacherList", url: "/teacherList" }, { title: "TeacherList" }],
     },
     component: TeacherListComponent,
   },
+  {
+    path: "studentList",
+    data: {
+      title: "StudentList",
+      urls: [{ title: "StudentList", url: "/studentList" }, { title: "StudentList" }],
+    },
+  component:StudentListComponent
+  }
 ];
 
 @NgModule({
@@ -34,7 +44,8 @@ const routes: Routes = [
   ],
   declarations: [
     TeacherListComponent,
-    AdminComponent
+    AdminComponent,
+    StudentListComponent
   ],
 })
 export class AdminModule {}

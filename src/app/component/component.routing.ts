@@ -8,12 +8,17 @@ import { BadgeComponent } from './badge/badge.component';
 import { NgbdButtonsComponent } from './buttons/buttons.component';
 import { CardsComponent } from './card/card.component';
 import { TableComponent } from './table/table.component';
+import { TlistComponent } from './tlist/tlist.component';
 
 
 export const ComponentsRoutes: Routes = [
 	{
 		path: '',
 		children: [
+			{
+				path: 'tlist',
+				component: TlistComponent
+			},
 			{
 				path: 'table',
 				component: TableComponent
